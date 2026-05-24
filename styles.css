@@ -1776,6 +1776,43 @@ body.dark-theme .cause-icon-container {
   text-decoration-color: var(--primary-pink);
 }
 
+/* Reveal on Scroll Animations (Hardware Accelerated) */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(35px);
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-35px);
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(35px);
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94);
+  will-change: transform, opacity;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-scale.active {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
 /* Responsiveness Settings */
 @media (max-width: 1024px) {
   .hero-section {
@@ -1885,11 +1922,30 @@ body.dark-theme .cause-icon-container {
   .chart-legend-box {
     grid-template-columns: 1fr 1fr;
   }
+  .section-wrapper {
+    padding: 60px 20px;
+  }
+  .stats-section {
+    padding: 40px 20px;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 580px) {
+  .impact-card {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+  .ref-item {
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2.3rem;
+    font-size: 2.1rem;
   }
   .hero-btn-container {
     flex-direction: column;
@@ -1900,12 +1956,42 @@ body.dark-theme .cause-icon-container {
     justify-content: center;
   }
   .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .quiz-dashboard {
-    padding: 20px;
+    padding: 15px;
+  }
+  .ref-card {
+    padding: 15px;
   }
   .chart-legend-box {
     grid-template-columns: 1fr;
   }
+  .timeline-item {
+    padding-left: 45px;
+    padding-right: 10px;
+  }
+  .timeline-container::after {
+    left: 16px;
+  }
+  .timeline-item::after {
+    left: 6px;
+  }
+  .timeline-content {
+    padding: 15px;
+  }
+  .timeline-year {
+    font-size: 1.4rem;
+  }
+  .tabs-nav {
+    flex-direction: column;
+    border-radius: 16px;
+    gap: 8px;
+    padding: 8px;
+  }
+  .tab-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
+

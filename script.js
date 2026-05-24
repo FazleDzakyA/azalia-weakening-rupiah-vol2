@@ -667,10 +667,4 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("quiz-restart-btn").addEventListener("click", () => {
       currentQuestionIndex = 0;
       score = 0;
-      loadQuestion();
-    });
-  }
 
-  // Start the quiz game
-  loadQuestion();
-});
