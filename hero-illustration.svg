@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="pinkGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7597" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FF3366" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E5AB" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="goldCoinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE57F"/>
+      <stop offset="50%" stop-color="#FFC107"/>
+      <stop offset="100%" stop-color="#FF8F00"/>
+    </linearGradient>
+    <linearGradient id="pinkCoinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFA4B4"/>
+      <stop offset="100%" stop-color="#FF2E93"/>
+    </linearGradient>
+    <linearGradient id="gridGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF7597" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#D4AF37" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="chartLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF2E93"/>
+      <stop offset="40%" stop-color="#FF7597"/>
+      <stop offset="70%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#00FFCC"/>
+    </linearGradient>
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <!-- Filters for Glow Effects -->
+    <filter id="glowPink" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowGold" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="15" stdDeviation="10" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Background Abstract Elements (grid nodes) -->
+  <g opacity="0.3" filter="url(#shadow)">
+    <!-- Main grid -->
+    <rect x="50" y="50" width="700" height="500" rx="20" fill="url(#gridGrad)" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1.5" />
+    <path d="M 50 150 L 750 150 M 50 250 L 750 250 M 50 350 L 750 350 M 50 450 L 750 450" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"/>
+    <path d="M 150 50 L 150 550 M 270 50 L 270 550 M 390 50 L 390 550 M 510 50 L 510 550 M 630 50 L 630 550" stroke="rgba(255, 255, 255, 0.03)" stroke-width="1"/>
+  </g>
+
+  <!-- Abstract Indonesia map overlay -->
+  <path d="M 100 280 Q 140 270 170 290 T 220 280 T 270 290 T 320 275 T 380 295 T 450 290 T 520 280 T 580 290 T 630 280 T 690 300" 
+        fill="none" stroke="rgba(255, 117, 151, 0.15)" stroke-width="6" stroke-linecap="round" filter="url(#glowPink)" />
+  <path d="M 120 310 Q 180 320 240 315 T 350 320 T 460 310 T 580 325 T 670 310" 
+        fill="none" stroke="rgba(212, 175, 55, 0.1)" stroke-width="4" stroke-dasharray="8 8" />
+
+  <!-- Trend Downward Arrow representing crisis (Red/Pink Gradient) -->
+  <g filter="url(#shadow)">
+    <!-- Interactive Graph Line -->
+    <path d="M 80 160 L 180 220 L 260 180 L 370 390 L 450 310 L 550 480 L 640 320 L 720 180" 
+          fill="none" stroke="url(#chartLineGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" filter="url(#glowPink)" />
+          
+    <!-- Background Area under line -->
+    <path d="M 80 160 L 180 220 L 260 180 L 370 390 L 450 310 L 550 480 L 640 320 L 720 180 L 720 540 L 80 540 Z" 
+          fill="url(#pinkGlow)" opacity="0.05" />
+  </g>
+
+  <!-- Financial Chart Nodes (Data Points) -->
+  <g>
+    <!-- Point 1 (1998 Crisis Peak Downward) -->
+    <circle cx="370" cy="390" r="10" fill="#FF2E93" stroke="#FFFFFF" stroke-width="3" filter="url(#glowPink)"/>
+    <line x1="370" y1="390" x2="370" y2="450" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.5" stroke-dasharray="4 4" />
+    <rect x="330" y="455" width="80" height="24" rx="5" fill="#111827" stroke="rgba(255, 117, 151, 0.4)" stroke-width="1"/>
+    <text x="370" y="471" fill="#FF7597" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle" font-weight="bold">KRISMON '98</text>
+
+    <!-- Point 2 (Global Economic Crisis 2008) -->
+    <circle cx="550" cy="480" r="10" fill="#D4AF37" stroke="#FFFFFF" stroke-width="3" filter="url(#glowGold)"/>
+    <line x1="550" y1="480" x2="550" y2="520" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.5" stroke-dasharray="4 4" />
+    <rect x="510" y="525" width="80" height="24" rx="5" fill="#111827" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1"/>
+    <text x="550" y="541" fill="#F3E5AB" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle" font-weight="bold">GLOBAL '08</text>
+
+    <!-- Point 3 (Modern Era Recovery / Fluctuations) -->
+    <circle cx="720" cy="180" r="10" fill="#00FFCC" stroke="#FFFFFF" stroke-width="3" />
+    <line x1="720" y1="180" x2="720" y2="120" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1.5" stroke-dasharray="4 4" />
+    <rect x="670" y="90" width="100" height="24" rx="5" fill="#111827" stroke="rgba(0, 255, 204, 0.4)" stroke-width="1"/>
+    <text x="720" y="106" fill="#00FFCC" font-family="'Outfit', sans-serif" font-size="11" text-anchor="middle" font-weight="bold">REFORMASI AKTUAL</text>
+  </g>
+
+  <!-- Big Glassmorphic Floating Cards -->
+  <!-- Card 1: Dollar Strength -->
+  <g transform="translate(100, 80)" filter="url(#shadow)">
+    <!-- Blur simulated via gradient & stroke -->
+    <rect x="0" y="0" width="180" height="90" rx="15" fill="url(#glassGrad)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5"/>
+    <!-- Card content -->
+    <circle cx="35" cy="35" r="18" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1" />
+    <text x="35" y="41" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="18" font-weight="bold" text-anchor="middle">$</text>
+    
+    <text x="65" y="32" fill="rgba(255, 255, 255, 0.5)" font-family="'Inter', sans-serif" font-size="11" font-weight="medium">USD / IDR</text>
+    <text x="65" y="52" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="20" font-weight="bold">Rp 16.250</text>
+    
+    <path d="M 65 65 L 75 60 L 85 65" fill="none" stroke="#FF2E93" stroke-width="2" stroke-linecap="round"/>
+    <text x="92" y="67" fill="#FF7597" font-family="'Inter', sans-serif" font-size="10" font-weight="bold">Depresiasi Kurs</text>
+  </g>
+
+  <!-- Card 2: Rupiah Stability Index -->
+  <g transform="translate(480, 220)" filter="url(#shadow)">
+    <rect x="0" y="0" width="200" height="95" rx="15" fill="url(#glassGrad)" stroke="rgba(212, 175, 55, 0.2)" stroke-width="1.5"/>
+    <!-- Card content -->
+    <circle cx="35" cy="35" r="18" fill="rgba(212, 175, 55, 0.1)" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1" />
+    <text x="35" y="41" fill="#D4AF37" font-family="'Outfit', sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Rp</text>
+    
+    <text x="65" y="30" fill="rgba(255, 255, 255, 0.5)" font-family="'Inter', sans-serif" font-size="11" font-weight="medium">Inflasi Reformasi</text>
+    <text x="65" y="50" fill="#D4AF37" font-family="'Outfit', sans-serif" font-size="18" font-weight="bold">Terkendali &lt; 3%</text>
+    
+    <path d="M 65 65 L 75 70 L 85 65" fill="none" stroke="#00FFCC" stroke-width="2" stroke-linecap="round"/>
+    <text x="92" y="68" fill="#00FFCC" font-family="'Inter', sans-serif" font-size="10" font-weight="bold">Kebijakan Moneter BI</text>
+  </g>
+
+  <!-- Floating Coins -->
+  <!-- Gold Rupiah Coin -->
+  <g transform="translate(280, 240) rotate(-15)" filter="url(#shadow)">
+    <circle cx="30" cy="30" r="35" fill="url(#goldCoinGrad)" stroke="#FFE57F" stroke-width="2"/>
+    <circle cx="30" cy="30" r="28" fill="none" stroke="#FFD54F" stroke-dasharray="4 2" stroke-width="1"/>
+    <text x="30" y="39" fill="#5D4037" font-family="'Outfit', sans-serif" font-size="28" font-weight="900" text-anchor="middle" letter-spacing="-1">Rp</text>
+    <!-- Coin specular shine -->
+    <path d="M 8 18 A 25 25 0 0 1 52 18" fill="none" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Silver/Pink US Dollar Coin -->
+  <g transform="translate(420, 130) rotate(20)" filter="url(#shadow)">
+    <circle cx="25" cy="25" r="28" fill="url(#pinkCoinGrad)" stroke="#FFA4B4" stroke-width="1.5"/>
+    <circle cx="25" cy="25" r="22" fill="none" stroke="#FF4081" stroke-dasharray="3 2" stroke-width="1"/>
+    <text x="25" y="33" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="24" font-weight="bold" text-anchor="middle">$</text>
+    <!-- Coin specular shine -->
+    <path d="M 8 15 A 18 18 0 0 1 42 15" fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Decorative modern economic graph bars (bottom right) -->
+  <g opacity="0.4" transform="translate(620, 420)" filter="url(#shadow)">
+    <rect x="0" y="40" width="20" height="60" rx="4" fill="#FF2E93" />
+    <rect x="28" y="20" width="20" height="80" rx="4" fill="#FF7597" />
+    <rect x="56" y="0" width="20" height="100" rx="4" fill="#D4AF37" />
+    <rect x="84" y="50" width="20" height="50" rx="4" fill="#00FFCC" />
+  </g>
+
+  <!-- Floating particles representing data network -->
+  <g opacity="0.6">
+    <circle cx="150" cy="400" r="3" fill="#FF7597" filter="url(#glowPink)"/>
+    <circle cx="290" cy="120" r="4" fill="#D4AF37" filter="url(#glowGold)"/>
+    <circle cx="480" cy="450" r="2" fill="#00FFCC" />
+    <circle cx="680" cy="260" r="3.5" fill="#FF2E93" filter="url(#glowPink)"/>
+    <circle cx="220" cy="500" r="2.5" fill="#FFFFFF" />
+  </g>
+</svg>

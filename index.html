@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Melemahnya Nilai Rupiah di Era Reformasi — Portal Edukasi Ekonomi Azalia Fitriani</title>
+  <meta name="description" content="Portal analisis ekonomi akademik interaktif mengenai dinamika pelemahan nilai tukar Rupiah terhadap Dolar AS di Era Reformasi oleh Azalia Fitriani. Dilengkapi data historis, grafik interaktif, kuis, dan berita terkini.">
+  <meta name="keywords" content="Rupiah, Era Reformasi, Depresiasi Rupiah, Krisis Moneter, Ekonomi Indonesia, Bank Indonesia, Sri Mulyani, Azalia Fitriani, Kurs USD IDR, Grafik Rupiah">
+  <meta name="author" content="Azalia Fitriani">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Melemahnya Nilai Rupiah di Era Reformasi — Azalia Fitriani">
+  <meta property="og:description" content="Pelajari sejarah, penyebab, dampak, dan upaya penyelamatan nilai tukar Rupiah sejak Krismon 1998 hingga era pasca-pandemi modern secara interaktif.">
+  <meta property="og:image" content="assets/hero-illustration.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Font Awesome Icons for premium style -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js for High-Fidelity Data Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-theme">
+
+  <!-- ---------------------------------------------------- -->
+  <!-- A. LOADING SCREEN                                    -->
+  <!-- ---------------------------------------------------- -->
+  <div id="loading-screen">
+    <div class="loader-container">
+      <div class="loader-spinner"></div>
+      <div class="loader-logo">Rp</div>
+      <div class="loader-bar">
+        <div class="loader-bar-fill"></div>
+      </div>
+      <div class="loader-text">Memuat Analisis Ekonomi...</div>
+    </div>
+  </div>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- B. NAVIGATION BAR                                    -->
+  <!-- ---------------------------------------------------- -->
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="nav-logo" id="nav-logo">
+      <span class="nav-logo-icon"><i class="fa-solid fa-chart-line"></i></span>
+      RUPIAH<span>REFORMASI</span>
+    </a>
+    
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#penjelasan">Pengertian</a></li>
+      <li><a href="#penyebab">Penyebab</a></li>
+      <li><a href="#dampak">Dampak</a></li>
+      <li><a href="#data-kurs">Data Kurs</a></li>
+      <li><a href="#upaya">Upaya</a></li>
+      <li><a href="#berita">Berita Terkini</a></li>
+      <li><a href="#referensi">Referensi</a></li>
+    </ul>
+
+    <div style="display: flex; gap: 15px; align-items: center;">
+      <button class="theme-toggle-btn" id="theme-toggle" title="Ubah Tema Warna">
+        <i class="fa-solid fa-sun"></i>
+      </button>
+      
+      <div class="menu-hamburger" id="menu-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 1. HERO / BANNER SECTION                             -->
+  <!-- ---------------------------------------------------- -->
+  <section class="hero-section" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-graduation-cap"></i> Portal Edukasi Ekonomi Indonesia
+      </div>
+      <h1 class="hero-title">
+        Melemahnya Nilai <span class="accent-pink">Rupiah</span> <br>
+        di Era <span class="accent-gold">Reformasi</span>
+      </h1>
+      <p class="hero-subtitle">
+        Sebuah kajian ilmiah dan historis yang menelaah pasang surut mata uang Garuda menghadapi badai krisis ekonomi global, dinamika geopolitik, hingga strategi ketahanan moneter nasional.
+      </p>
+      
+      <div class="hero-author">
+        <div class="hero-author-avatar">AF</div>
+        <div class="hero-author-info">
+          <h4>Azalia Fitriani</h4>
+          <p>Peneliti & Edukator Ekonomi Kreatif</p>
+        </div>
+      </div>
+      
+      <div class="hero-btn-container">
+        <a href="#penjelasan" class="btn-primary">
+          Mulai Kajian
+          <i class="fa-solid fa-arrow-down"></i>
+        </a>
+        <a href="#data-kurs" class="btn-secondary">
+          Lihat Grafik Interaktif
+          <i class="fa-solid fa-chart-area"></i>
+        </a>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <div class="hero-image-wrapper">
+        <object type="image/svg+xml" data="assets/hero-illustration.svg" style="width: 100%; height: auto; pointer-events: none;"></object>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 2. QUICK STATISTICS SECTION (CARDS)                  -->
+  <!-- ---------------------------------------------------- -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <!-- Card 1: Kurs Terbaru -->
+      <div class="stat-card" id="card-exchange">
+        <div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+        <div class="stat-number" id="stat-exchange" data-target="16250">0</div>
+        <div class="stat-label">Kurs Rupiah / USD</div>
+        <div class="stat-trend trend-up">
+          <i class="fa-solid fa-caret-up"></i> Depresiasi 0,15% (Mingguan)
+        </div>
+      </div>
+      
+      <!-- Card 2: Inflasi -->
+      <div class="stat-card" id="card-inflation">
+        <div class="stat-icon"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+        <div class="stat-number" id="stat-inflation" data-target="2.84">0</div>
+        <div class="stat-label">Tingkat Inflasi RI</div>
+        <div class="stat-trend trend-down">
+          <i class="fa-solid fa-circle-check"></i> Stabil & Terkendali BPS
+        </div>
+      </div>
+      
+      <!-- Card 3: Cadangan Devisa -->
+      <div class="stat-card" id="card-reserves">
+        <div class="stat-icon"><i class="fa-solid fa-vault"></i></div>
+        <div class="stat-number" id="stat-reserves" data-target="140.2">0</div>
+        <div class="stat-label">Cadangan Devisa (USD)</div>
+        <div class="stat-trend trend-down">
+          <i class="fa-solid fa-circle-check"></i> Kuat Menopang Impor
+        </div>
+      </div>
+      
+      <!-- Card 4: GDP Growth -->
+      <div class="stat-card" id="card-gdp">
+        <div class="stat-icon"><i class="fa-solid fa-building-columns"></i></div>
+        <div class="stat-number" id="stat-gdp" data-target="5.05">0</div>
+        <div class="stat-label">Pertumbuhan PDB</div>
+        <div class="stat-trend trend-down">
+          <i class="fa-solid fa-chart-line"></i> Kokoh di G20
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 3. PENGERTIAN & KONDISI EKONOMI SECTION              -->
+  <!-- ---------------------------------------------------- -->
+  <section class="section-wrapper" id="penjelasan">
+    <div class="section-header">
+      <span class="section-subtitle">Tinjauan Akademis</span>
+      <h2 class="section-title">Konsep Nilai Tukar & Era Reformasi</h2>
+      <p class="section-desc">Pahami fondasi mengapa nilai tukar mata uang berfluktuasi serta bagaimana kondisi fundamental ekonomi Indonesia bertransisi di masa Reformasi.</p>
+    </div>
+    
+    <div class="about-grid">
+      <div class="about-text">
+        <h3 class="about-tagline">
+          Apa itu <span>Melemahnya Nilai Rupiah</span>?
+        </h3>
+        <p class="about-p">
+          Melemahnya Rupiah (depresiasi mata uang) adalah penurunan daya beli nominal Rupiah terhadap mata uang asing, utamanya Dolar Amerika Serikat (USD). Dalam sistem kurs mengambang bebas yang dianut Indonesia sejak Agustus 1997, harga Rupiah murni ditentukan oleh kekuatan permintaan dan penawaran di pasar valuta asing.
+        </p>
+        <p class="about-p">
+          Ketika permintaan akan Dolar AS meningkat (karena impor tinggi atau modal asing keluar) sementara penawaran Rupiah melimpah, nilai Rupiah akan tertekan turun. Sebaliknya, reformasi ekonomi yang dimulai pasca-1998 membawa perubahan fundamental struktural demi meminimalkan krisis serupa di masa depan.
+        </p>
+        
+        <div class="about-features">
+          <div class="feature-box">
+            <div class="feature-box-icon"><i class="fa-solid fa-rotate"></i></div>
+            <h4 class="feature-box-title">Free Float System</h4>
+            <p class="feature-box-desc">Nilai kurs mengambang bebas pasca-krisis moneter 1997 menggantikan sistem managed float.</p>
+          </div>
+          <div class="feature-box">
+            <div class="feature-box-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4 class="feature-box-title">Independensi BI</h4>
+            <p class="feature-box-desc">Bank Indonesia diposisikan sebagai lembaga independen bebas intervensi politik kabinet sejak 1999.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80" alt="Pasar Valuta Asing">
+        <div class="about-image-overlay">
+          <div class="about-image-text">
+            <h3>Era Reformasi Moneter</h3>
+            <p>Sejak kejatuhan Orde Baru, Indonesia menata kembali ketahanan moneter melalui reformasi perbankan ketat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 4. FAKTOR PENYEBAB MELEMAHNYA RUPIAH                 -->
+  <!-- ---------------------------------------------------- -->
+  <section class="section-wrapper" id="penyebab" style="background: var(--bg-card-current); transition: var(--transition-smooth);">
+    <div class="section-header">
+      <span class="section-subtitle">Analisis Kausalitas</span>
+      <h2 class="section-title">Faktor Utama Depresiasi Rupiah</h2>
+      <p class="section-desc">Pelemahan mata uang merupakan akumulasi interaksi kompleks dari tekanan ekonomi domestik dan sentimen pasar global.</p>
+    </div>
+    
+    <div class="causes-grid">
+      <!-- Faktor 1 -->
+      <div class="cause-card">
+        <div class="cause-icon-container">
+          <i class="fa-solid fa-landmark-dome"></i>
+        </div>
+        <h3 class="cause-title">Kebijakan Moneter AS (The Fed)</h3>
+        <p class="cause-desc">
+          Setiap kali Bank Sentral Amerika Serikat menaikkan suku bunga acuan (*Fed Rate*), investor global menarik modal mereka dari negara berkembang untuk diinvestasikan kembali di AS karena imbal hasil yang bebas risiko lebih menarik (*capital outflow*).
+        </p>
+      </div>
+      
+      <!-- Faktor 2 -->
+      <div class="cause-card">
+        <div class="cause-icon-container">
+          <i class="fa-solid fa-scale-unbalanced"></i>
+        </div>
+        <h3 class="cause-title">Defisit Transaksi Berjalan</h3>
+        <p class="cause-desc">
+          Ketergantungan industri nasional pada impor bahan baku mentah dan migas membuat kebutuhan valuta asing sangat tinggi. Ketika kinerja ekspor melemah, defisit transaksi berjalan melebar dan cadangan devisa tergerus untuk menopang kurs.
+        </p>
+      </div>
+      
+      <!-- Faktor 3 -->
+      <div class="cause-card">
+        <div class="cause-icon-container">
+          <i class="fa-solid fa-earth-asia"></i>
+        </div>
+        <h3 class="cause-title">Geopolitik & Perlambatan Global</h3>
+        <p class="cause-desc">
+          Konflik internasional, perang dagang, dan melambatnya pertumbuhan ekonomi di negara mitra dagang utama seperti Tiongkok menekan permintaan ekspor komoditas andalan Indonesia, berujung pada penurunan pasokan Dolar masuk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 5. DAMPAK TERHADAP BERBAGAI SEKTOR                   -->
+  <!-- ---------------------------------------------------- -->
+  <section class="section-wrapper" id="dampak">
+    <div class="section-header">
+      <span class="section-subtitle">Konsekuensi Riil</span>
+      <h2 class="section-title">Dampak Sistemik Pelemahan Rupiah</h2>
+      <p class="section-desc">Fluktuasi nilai tukar merembet ke seluruh jaringan aktivitas ekonomi masyarakat, investasi, hingga dunia pendidikan.</p>
+    </div>
+    
+    <div class="impacts-grid">
+      <!-- Dampak 1 -->
+      <div class="impact-card">
+        <div class="impact-icon"><i class="fa-solid fa-users"></i></div>
+        <div class="impact-info">
+          <h3>Masyarakat & Daya Beli</h3>
+          <p>Masyarakat berpenghasilan rendah merasakan pukulan paling telak akibat pelemahan Rupiah:</p>
+          <ul class="impact-points">
+            <li><i class="fa-solid fa-circle-chevron-right"></i> Penurunan upah riil akibat inflasi kebutuhan domestik.</li>
+            <li><i class="fa-solid fa-circle-chevron-right"></i> Pengurangan porsi belanja barang sekunder demi pertahanan pangan.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Dampak 2 -->
+      <div class="impact-card">
+        <div class="impact-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="impact-info">
+          <h3>Sektor Pendidikan</h3>
+          <p>Pendidikan tinggi dan sarana prasarana sekolah tidak terhindar dari guncangan kurs:</p>
+          <ul class="impact-points">
+            <li><i class="fa-solid fa-circle-chevron-right"></i> Melonjaknya harga buku teks, jurnal ilmiah luar negeri, dan kertas.</li>
+            <li><i class="fa-solid fa-circle-chevron-right"></i> Pembengkakan biaya operasional beasiswa studi luar negeri pemerintah (LPDP).</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Dampak 3 -->
+      <div class="impact-card">
+        <div class="impact-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+        <div class="impact-info">
+          <h3>Harga Barang & Inflasi Impor</h3>
+          <p>Meningkatnya ongkos produksi manufaktur karena tingginya bahan penolong impor:</p>
+          <ul class="impact-points">
+            <li><i class="fa-solid fa-circle-chevron-right"></i> Kenaikan harga barang elektronik, otomotif, obat-obatan, dan kedelai.</li>
+            <li><i class="fa-solid fa-circle-chevron-right"></i> Efek rembesan (*pass-through effect*) memicu inflasi umum di dalam negeri.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Dampak 4 -->
+      <div class="impact-card">
+        <div class="impact-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+        <div class="impact-info">
+          <h3>Investasi & Pasar Modal</h3>
+          <p>Ketidakpastian kurs merubah perilaku alokasi dana investor domestik maupun asing:</p>
+          <ul class="impact-points">
+            <li><i class="fa-solid fa-circle-chevron-right"></i> Sisi Negatif: Aksi jual portofolio saham oleh asing (*capital flight*).</li>
+            <li><i class="fa-solid fa-circle-chevron-right"></i> Sisi Positif: Investasi hilirisasi tambang memperoleh laba ekspor berlipat.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 6. HISTORY TIMELINE KRISIS MONETER                   -->
+  <!-- ---------------------------------------------------- -->
+  <section class="section-wrapper" style="background: var(--bg-card-current); transition: var(--transition-smooth);">
+    <div class="section-header">
+      <span class="section-subtitle">Kronik Historis</span>
+      <h2 class="section-title">Timeline Sejarah Krisis Moneter RI</h2>
+      <p class="section-desc">Jelajahi titik balik penting sejarah rupiah menghadapi krisis moneter dari akhir abad 20 hingga dekade 2020-an.</p>
+    </div>
+    
+    <div class="timeline-container">
+      <!-- Item 1 -->
+      <div class="timeline-item active timeline-left">
+        <div class="timeline-content">
+          <div class="timeline-year">1997 - 1998</div>
+          <h3 class="timeline-title">Krisis Moneter Asia (Krismon)</h3>
+          <p class="timeline-desc">Badai finansial meruntuhkan nilai tukar rupiah dari Rp 2.400 menjadi Rp 16.800 per Dolar AS. Krisis likuiditas perbankan ini melahirkan inflasi di atas 70% dan memicu demonstrasi massal runtuhnya Orde Baru.</p>
+        </div>
+      </div>
+      
+      <!-- Item 2 -->
+      <div class="timeline-item timeline-right">
+        <div class="timeline-content">
+          <div class="timeline-year">2008</div>
+          <h3 class="timeline-title">Krisis Keuangan Subprime Mortgage</h3>
+          <p class="timeline-desc">Kebangkrutan raksasa keuangan Wall Street memicu kepanikan likuiditas global. Aliran modal asing keluar mendadak membuat Rupiah melemah dari Rp 9.000 menembus batas psikologis Rp 12.000 per Dolar AS.</p>
+        </div>
+      </div>
+      
+      <!-- Item 3 -->
+      <div class="timeline-item timeline-left">
+        <div class="timeline-content">
+          <div class="timeline-year">2013</div>
+          <h3 class="timeline-title">Guncangan Taper Tantrum</h3>
+          <p class="timeline-desc">Sinyal pengetatan stimulus kuantitatif oleh Bank Sentral AS memicu penarikan dana mendadak di negara-negara berkembang. Rupiah tertekan hingga merosot ke kisaran Rp 12.200 per Dolar AS.</p>
+        </div>
+      </div>
+      
+      <!-- Item 4 -->
+      <div class="timeline-item timeline-right">
+        <div class="timeline-content">
+          <div class="timeline-year">2020</div>
+          <h3 class="timeline-title">Pandemi COVID-19 & Market Shock</h3>
+          <p class="timeline-desc">Karantina wilayah global memicu kepanikan bursa saham dunia. Rupiah melemah tajam ke Rp 16.300 sebelum akhirnya diselamatkan oleh kombinasi *quantitative easing* BI dan stimulus pemulihan ekonomi PEN.</p>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="timeline-item timeline-left">
+        <div class="timeline-content">
+          <div class="timeline-year">2024 - 2026</div>
+          <h3 class="timeline-title">Fed Rate Hikes & Tantangan Struktural</h3>
+          <p class="timeline-desc">Suku bunga AS yang dipertahankan tinggi (Higher for Longer) dikombinasikan tensi geopolitik Timur Tengah menekan rupiah di level Rp 16.200 - Rp 16.400. Namun kekuatan hilirisasi menjaga ketahanan eksternal RI tetap tangguh.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 7. INTERACTIVE EXCHANGE RATE CHART                   -->
+  <!-- ---------------------------------------------------- -->
+  <section class="section-wrapper" id="data-kurs">
+    <div class="section-header">
+      <span class="section-subtitle">Visualisasi Data Makro</span>
+      <h2 class="section-title">Tren Historis Rupiah vs USD</h2>
+      <p class="section-desc">Grafik interaktif berikut memetakan fluktuasi rata-rata kurs Rupiah dari tahun ke tahun (1998–2026). Arahkan kursor Anda ke titik grafik untuk membaca deskripsi edukasi peristiwa ekonomi.</p>
+    </div>
+    
+    <div class="chart-dashboard">
+      <div class="chart-controls">
+        <div class="chart-title-area">
+          <h3>Grafik Fluktuasi Kurs Rupiah terhadap USD</h3>
+          <p>Sumber Resmi Terintegrasi: Bank Indonesia & BPS Indonesia</p>
+        </div>
+        
+        <div class="chart-filter-buttons">
+          <button class="chart-filter-btn active" data-range="all">Tampilkan Semua</button>
+          <button class="chart-filter-btn" data-range="krismon">Pasca Krismon</button>
+          <button class="chart-filter-btn" data-range="global">Krisis Global</button>
+          <button class="chart-filter-btn" data-range="recent">10 Tahun Terakhir</button>
+        </div>
+      </div>
+      
+      <div class="chart-canvas-container">
+        <canvas id="rupiahChart"></canvas>
+      </div>
+
+      <div class="chart-legend-box">
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #D4AF37;"></div>
+          <div class="legend-info">
+            <h4>Titik Anotasi Sejarah</h4>
+            <p>Tahun terjadinya gejolak kurs signifikan yang tercatat dalam sejarah ekonomi.</p>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: #FF6B8B;"></div>
+          <div class="legend-info">
+            <h4>Garis Kurs Tengah</h4>
+            <p>Menunjukkan pergerakan nilai tukar nominal Rupiah pertengahan tahun.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 8. UPAYA PEMERINTAH & BI (TABBED BOX)                -->
+  <!-- ---------------------------------------------------- -->
+  <section class="section-wrapper" id="upaya" style="background: var(--bg-card-current); transition: var(--transition-smooth);">
+    <div class="section-header">
+      <span class="section-subtitle">Mitigasi Kebijakan</span>
+      <h2 class="section-title">Upaya Stabilitas Moneter & Fiskal</h2>
+      <p class="section-desc">Pemerintah RI bersama Bank Indonesia bersinergi menstabilkan pergerakan rupiah melalui bauran kebijakan makroekonomi yang komprehensif.</p>
+    </div>
+    
+    <div class="tabs-container">
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="moneter">
+          <i class="fa-solid fa-building-columns"></i> Kebijakan Moneter BI
+        </button>
+        <button class="tab-btn" data-tab="fiskal">
+          <i class="fa-solid fa-briefcase"></i> Kebijakan Fiskal Kemenkeu
+        </button>
+        <button class="tab-btn" data-tab="riil">
+          <i class="fa-solid fa-industry"></i> Sektor Riil & Hilirisasi
+        </button>
+      </div>
+      
+      <!-- Tab Moneter -->
+      <div class="tab-content active" id="moneter">
+        <div class="upaya-card-grid">
+          <div class="upaya-card">
+            <div class="upaya-card-header">
+              <div class="upaya-card-num">01</div>
+              <h3 class="upaya-card-title">Intervensi Pasar Valas</h3>
+            </div>
+            <p class="upaya-card-desc">Bank Indonesia aktif melakukan intervensi di pasar spot, Domestic Non-Deliverable Forward (DNDF), serta pasar surat berharga negara (SBN) demi meredam gejolak harian spekulatif.</p>
+          </div>
+          <div class="upaya-card">
+            <div class="upaya-card-header">
+              <div class="upaya-card-num">02</div>
+              <h3 class="upaya-card-title">Penyesuaian BI-Rate</h3>
+            </div>
+            <p class="upaya-card-desc">Menaikkan suku bunga acuan secara bertahap saat tekanan depresiasi memuncak untuk mempertahankan daya tarik investasi portofolio keuangan dan mengendalikan inflasi domestik.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tab Fiskal -->
+      <div class="tab-content" id="fiskal">
+        <div class="upaya-card-grid">
+          <div class="upaya-card">
+            <div class="upaya-card-header">
+              <div class="upaya-card-num">01</div>
+              <h3 class="upaya-card-title">Bantalan Sosial APBN</h3>
+            </div>
+            <p class="upaya-card-desc">Menjaga stabilitas harga pangan domestik dengan menaikkan alokasi subsidi energi dan jaring pengaman sosial agar daya beli masyarakat menengah ke bawah terlindungi dari lonjakan harga barang impor.</p>
+          </div>
+          <div class="upaya-card">
+            <div class="upaya-card-header">
+              <div class="upaya-card-num">02</div>
+              <h3 class="upaya-card-title">Insentif Pajak Eksportir</h3>
+            </div>
+            <p class="upaya-card-desc">Memberikan kemudahan bea ekspor dan pembebasan pajak bagi industri padat karya berorientasi ekspor guna mendatangkan devisa dalam bentuk mata uang asing ke dalam kas negara.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tab Riil -->
+      <div class="tab-content" id="riil">
+        <div class="upaya-card-grid">
+          <div class="upaya-card">
+            <div class="upaya-card-header">
+              <div class="upaya-card-num">01</div>
+              <h3 class="upaya-card-title">Hilirisasi Industri Komoditas</h3>
+            </div>
+            <p class="upaya-card-desc">Melarang ekspor bahan tambang mentah (bijih nikel, tembaga) dan mewajibkan pemurnian di dalam negeri guna melipatgandakan nilai tambah nilai ekspor dan memperbaiki ketahanan struktural kurs.</p>
+          </div>
+          <div class="upaya-card">
+            <div class="upaya-card-header">
+              <div class="upaya-card-num">02</div>
+              <h3 class="upaya-card-title">Substitusi Impor & Biodiesel</h3>
+            </div>
+            <p class="upaya-card-desc">Mengembangkan program biodiesel mandiri (seperti B35/B40) demi mengurangi ketergantungan impor minyak mentah global yang menghabiskan miliaran Dolar AS setiap bulannya.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 9. BERITA EKONOMI TERBARU (LIVE SEARCH / GRID)        -->
+  <!-- ---------------------------------------------------- -->
+  <section class="section-wrapper" id="berita">
+    <div class="section-header">
+      <span class="section-subtitle">Kanal Informasi</span>
+      <h2 class="section-title">Berita Ekonomi Terbaru</h2>
+      <p class="section-desc">Perkembangan dinamika makroekonomi berjalan sangat dinamis. Cari dan temukan berita terbaru di bawah ini.</p>
+    </div>
+
+    <!-- News Search Bar -->
+    <div class="news-search-bar">
+      <input type="text" id="news-search-input" placeholder="Cari topik berita (contoh: BI, Kurs, Sri Mulyani)...">
+      <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    
+    <!-- News Grid (Populated dynamically via JS) -->
+    <div class="news-grid" id="news-grid">
+      <!-- Cards rendered by script.js -->
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 10. INTERACTIVE TRIVIA QUIZ (EDUCATIONAL)            -->
+  <!-- ---------------------------------------------------- -->
+  <section class="section-wrapper" style="background: var(--bg-card-current); transition: var(--transition-smooth);">
+    <div class="section-header">
+      <span class="section-subtitle">Evaluasi Edukatif</span>
+      <h2 class="section-title">Uji Pemahaman Ekonomi Anda</h2>
+      <p class="section-desc">Kerjakan kuis trivia interaktif di bawah ini untuk menilai pemahaman akademis Anda terkait melemahnya nilai Rupiah.</p>
+    </div>
+
+    <!-- Quiz Dashboard -->
+    <div class="quiz-dashboard" id="quiz-card">
+      <!-- Quiz screens loaded dynamically by script.js -->
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 11. REFERENSI / BIBLIOGRAFI SECTION                  -->
+  <!-- ---------------------------------------------------- -->
+  <section class="section-wrapper" id="referensi">
+    <div class="section-header">
+      <span class="section-subtitle">Daftar Pustaka Akademis</span>
+      <h2 class="section-title">Referensi & Sumber Data Valid</h2>
+      <p class="section-desc">Kajian ekonomi ini disusun berlandaskan data ilmiah yang dipublikasikan secara berkala oleh lembaga negara resmi dan media finansial kredibel.</p>
+    </div>
+    
+    <div class="ref-card">
+      <ul class="ref-list">
+        <!-- Ref 1 -->
+        <li class="ref-item">
+          <div class="ref-icon"><i class="fa-solid fa-building-columns"></i></div>
+          <div class="ref-info">
+            <h4>Bank Indonesia (BI) — Laporan Perekonomian & Data Inflasi Bulanan</h4>
+            <p>Menyajikan data resmi suku bunga acuan (BI-Rate), cadangan devisa, stabilitas moneter makro, dan publikasi triwulanan.</p>
+            <a href="https://www.bi.go.id?utm_source=chatgpt.com" target="_blank" class="ref-link-btn">
+              Kunjungi Situs Bank Indonesia <i class="fa-solid fa-up-right-from-square"></i>
+            </a>
+          </div>
+        </li>
+        
+        <!-- Ref 2 -->
+        <li class="ref-item">
+          <div class="ref-icon"><i class="fa-solid fa-chart-simple"></i></div>
+          <div class="ref-info">
+            <h4>Badan Pusat Statistik (BPS) — Laporan Ekspor-Impor & Neraca Perdagangan</h4>
+            <p>Penyedia database inflasi nasional (Indeks Harga Konsumen), data kependudukan, pertumbuhan PDB, dan nilai tambah ekspor hilirisasi.</p>
+            <a href="https://www.bps.go.id?utm_source=chatgpt.com" target="_blank" class="ref-link-btn">
+              Kunjungi Situs BPS Indonesia <i class="fa-solid fa-up-right-from-square"></i>
+            </a>
+          </div>
+        </li>
+        
+        <!-- Ref 3 -->
+        <li class="ref-item">
+          <div class="ref-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="ref-info">
+            <h4>Kementerian Keuangan RI (Kemenkeu) — Rilis Nota Keuangan APBN</h4>
+            <p>Dokumentasi resmi kebijakan fiskal pemerintah, alokasi anggaran subsidi energi domestik, penyerapan APBN, dan strategi pajak ekspor.</p>
+            <a href="https://www.kemenkeu.go.id?utm_source=chatgpt.com" target="_blank" class="ref-link-btn">
+              Kunjungi Situs Kemenkeu RI <i class="fa-solid fa-up-right-from-square"></i>
+            </a>
+          </div>
+        </li>
+
+        <!-- Ref 4 -->
+        <li class="ref-item">
+          <div class="ref-icon"><i class="fa-solid fa-newspaper"></i></div>
+          <div class="ref-info">
+            <h4>CNBC Indonesia & Kompas.com — Kanal Analisis Pasar & Gejolak Kurs</h4>
+            <p>Portal media finansial yang menyajikan berita aktual harian, ulasan ekonom independen, serta laporan sentimen pasar modal terkini.</p>
+            <a href="https://www.cnbcindonesia.com?utm_source=chatgpt.com" target="_blank" class="ref-link-btn" style="margin-right: 20px;">
+              CNBC Indonesia <i class="fa-solid fa-up-right-from-square"></i>
+            </a>
+            <a href="https://www.kompas.com?utm_source=chatgpt.com" target="_blank" class="ref-link-btn">
+              Kompas.com <i class="fa-solid fa-up-right-from-square"></i>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- -->
+  <!-- 12. FOOTER SECTION                                   -->
+  <!-- ---------------------------------------------------- -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <!-- Col 1 -->
+      <div class="footer-logo-area">
+        <a href="#home" class="footer-logo-title">
+          <span>RUPIAH</span>REFORMASI
+        </a>
+        <p class="footer-logo-desc">
+          Portal edukasi akademis interaktif untuk memahami perjuangan, mitigasi, dan masa depan nilai tukar Rupiah di Era Reformasi nasional.
+        </p>
+        
+        <div class="footer-social-icons">
+          <a href="#" class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fa-brands fa-github"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      
+      <!-- Col 2 -->
+      <div>
+        <h4 class="footer-links-title">Navigasi Cepat</h4>
+        <ul class="footer-links-list">
+          <li><a href="#home">Utama (Home)</a></li>
+          <li><a href="#penjelasan">Pengertian & Transisi</a></li>
+          <li><a href="#penyebab">Faktor Penyebab</a></li>
+          <li><a href="#dampak">Dampak Sektoral</a></li>
+        </ul>
+      </div>
+      
+      <!-- Col 3 -->
+      <div>
+        <h4 class="footer-links-title">Modul Interaktif</h4>
+        <ul class="footer-links-list">
+          <li><a href="#data-kurs">Grafik Interaktif</a></li>
+          <li><a href="#upaya">Sinergi Kebijakan</a></li>
+          <li><a href="#berita">Berita Terbaru</a></li>
+          <li><a href="#referensi">Referensi Valid</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Rupiah Reformasi Portal. Hak Cipta Dilindungi Undang-Undang.</p>
+      <div class="footer-credit">
+        Website edukasi ekonomi oleh <span>Azalia Fitriani</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
